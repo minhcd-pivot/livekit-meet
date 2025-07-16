@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
     const { LIVEKIT_API_KEY, LIVEKIT_API_SECRET, LIVEKIT_URL } = process.env;
 
     const hostURL = new URL(LIVEKIT_URL!);
-    hostURL.protocol = 'https:';
+    // hostURL.protocol = 'https:';
 
     const egressClient = new EgressClient(hostURL.origin, LIVEKIT_API_KEY, LIVEKIT_API_SECRET);
     const activeEgresses = (await egressClient.listEgress({ roomName })).filter(
